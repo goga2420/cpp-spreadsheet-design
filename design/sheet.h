@@ -35,7 +35,6 @@ private:
     void InvalidateCache(const Position& pos);
     //размер таблицы
     Size size_;
-    //словарь который сохраняет печатный размер таблицы
-    std::map<Position, Size>table_size_keeper;
+    
     std::vector<std::vector<std::unique_ptr<Cell>>> sheet_;
 };

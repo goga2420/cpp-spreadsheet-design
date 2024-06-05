@@ -23,7 +23,7 @@ public:
 
     // Возвращает выражение, которое описывает формулу.
     // Не содержит пробелов и лишних скобок.
-    virtual std::string GetExpression() const = 0;
+    virtual std::string GetExpression(const std::function<double(const Position&)>& get_value) const = 0;
     
     //Возвращает ячейку на которую ссылаются
     virtual std::vector<Position> GetReferencedCells() const = 0;
