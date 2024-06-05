@@ -23,12 +23,19 @@ public:
 
     const Cell* GetConcreteCell(Position pos) const;
     Cell* GetConcreteCell(Position pos);
+    
+    const DepedencyGraph& GetGraph() const;
 
 private:
     void MaybeIncreaseSizeToIncludePosition(Position pos);
     void PrintCells(std::ostream& output,
                     const std::function<void(const CellInterface&)>& printCell) const;
     Size GetActualSize() const;
-
-    std::vector<std::vector<std::unique_ptr<Cell>>> cells_;
+    
+    void InvalidateCache(const Position& pos);
+    //размер таблицы
+    Size size_;
+    //словарь который сохраняет печатный размер таблицы
+    std::map<Position, Size>table_size_keeper;
+    std::vector<std::vector<std::unique_ptr<Cell>>> sheet_;
 };
