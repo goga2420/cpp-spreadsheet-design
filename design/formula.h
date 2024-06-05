@@ -19,7 +19,7 @@ public:
 
     // Возвращает вычисленное значение формулы либо ошибку. На данном этапе
     // мы создали только 1 вид ошибки -- деление на 0.
-    virtual Value Evaluate() const = 0;
+    virtual Value Evaluate(const std::function<double(const Position&)>& get_value) const = 0;
 
     // Возвращает выражение, которое описывает формулу.
     // Не содержит пробелов и лишних скобок.
